@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text;
 
@@ -52,6 +53,29 @@ namespace TechJobsConsole
                 if (aValue.Contains(value))
                 {
                     jobs.Add(row);
+                }
+            }
+
+            return jobs;
+        }
+
+        public static List<Dictionary<string, string>> FindByValue(string value)
+        {
+            LoadData();
+
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> row in AllJobs)
+            {
+                foreach (string result in row.Values)
+                {
+                    string aValue = result.ToUpper();
+
+                    if (aValue.Contains(value.ToUpper()))
+                    {
+                        jobs.Add(row);
+                        break;
+                    }
                 }
             }
 

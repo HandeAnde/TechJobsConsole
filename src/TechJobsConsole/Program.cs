@@ -63,7 +63,7 @@ namespace TechJobsConsole
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
+                        searchResults = JobData.FindByValue(columnChoice);
                         PrintJobs(searchResults);
                     }
                     else
@@ -131,15 +131,10 @@ namespace TechJobsConsole
                     //going over the dictionary k/v pairs
                     foreach (KeyValuePair<string, string> jobInfo in job)
                     {
-                        
                         Console.WriteLine("{0} : {1}", jobInfo.Key, jobInfo.Value);
                     }
                     Console.WriteLine(middle);
                 }
-
-
-
-
 
             }
             else
