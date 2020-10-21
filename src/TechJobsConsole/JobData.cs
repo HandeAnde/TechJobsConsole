@@ -71,7 +71,7 @@ namespace TechJobsConsole
                 {
                     string aValue = result.ToUpper();
 
-                    if (aValue.Contains(value.ToUpper()))
+                    if (aValue.ToUpper().Contains(value.ToUpper()))
                     {
                         jobs.Add(row);
                         break;
